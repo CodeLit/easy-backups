@@ -1,0 +1,36 @@
+import {FolderBackup} from "../src/backup.js";
+
+let backup = new FolderBackup('./example/project', './example/backups')
+
+// There was a backup long time ago...
+backup.today = new Date("2020-06-21");
+await backup.daily(2)
+await backup.weekly(2)
+await backup.monthly(2)
+await backup.annually(2)
+
+// And another backup next day after first
+backup.today = new Date("2020-06-22");
+await backup.daily(2)
+await backup.weekly(2)
+await backup.monthly(2)
+await backup.annually(2)
+
+backup.today = new Date("2021-06-22");
+await backup.daily(2)
+await backup.weekly(2)
+await backup.monthly(2)
+await backup.annually(2)
+
+backup.today = new Date("2021-07-22");
+await backup.daily(2)
+await backup.weekly(2)
+await backup.monthly(2)
+await backup.annually(2)
+
+// Current TODAY will rewrite the old backups
+backup.today = new Date();
+await backup.daily(2)
+await backup.weekly(2)
+await backup.monthly(2)
+await backup.annually(2)
