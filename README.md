@@ -2,6 +2,10 @@
 
 
 ## Usage:
+```shell
+npm i easy-backuper
+```
+
 ```js
 // script.js
 
