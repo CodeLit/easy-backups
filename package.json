@@ -1,13 +1,20 @@
 {
   "name": "easy-backuper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Make your backups super easy",
   "main": "index.js",
   "scripts": {
     "test": "node example/example.js"
   },
-  "author": "https://github.com/CodeLit",
+  "author": {
+    "name": "CodeLit",
+    "email": "nlit@pm.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeLit/easy-backuper"
+  },
   "license": "BSD-3-Clause",
   "dependencies": {
     "current-week-number": "^1.0.7",
