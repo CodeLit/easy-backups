@@ -1,4 +1,4 @@
-import {FolderBackup} from "../src/backup.js";
+import {FolderBackup} from "../index.js";
 
 let backup = new FolderBackup('./example/project', './example/backups')
 

@@ -9,7 +9,7 @@ npm i easy-backuper
 ```js
 // script.js
 
-import {FolderBackup} from "../src/backup.js";
+import {FolderBackup} from "easy-backuper";
 
 // Specify project folder you want to backup, and path to backup storage
 let backup = new FolderBackup('./example/project', './example/backups') // IN, OUT

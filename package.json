@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "type": "module",
   "description": "Make your backups super easy",
-  "main": "backup.js",
+  "main": "index.js",
   "scripts": {
     "test": "node example/example.js"
   },
