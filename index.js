@@ -1,8 +1,13 @@
 import {tar, COMPRESSION_LEVEL} from "zip-a-folder";
 import currentWeekNumber from "current-week-number";
 import fs from "fs";
+import tempDirectory from "temp-dir";
+import randomstring from "randomstring";
+import copy from "recursive-copy";
 
 export class FolderBackup {
+    filter;
+
     constructor(fromFolder, pathToBackups) {
         this.fromFolder = fromFolder
         this.pathToBackups = pathToBackups
@@ -79,13 +84,25 @@ export class FolderBackup {
                 }
             }
         }
+
+        let tmpBackupDir = tempDirectory+'/'+randomstring.generate()
+
+        fs.mkdirSync(tmpBackupDir,{recursive: true})
+
+        await copy(this.fromFolder, tmpBackupDir, {
+            filter: this.filter
+        })
+
         if (!fs.existsSync(pathToBackup) && !doNotCreate)
-            await tar(this.fromFolder, pathToBackup, {compression: COMPRESSION_LEVEL.high});
+            await tar(tmpBackupDir, pathToBackup, {compression: COMPRESSION_LEVEL.high});
+
+        fs.rm(tmpBackupDir,{recursive: true},()=>{})
 
         while (files.length > count) {
             fs.unlinkSync(pathToBackups + '/' + files[0]);
             files = fs.readdirSync(pathToBackups);
         }
+
     }
 
     getDateParams() {

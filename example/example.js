@@ -1,9 +1,10 @@
 import {FolderBackup} from "../index.js";
 
-let backup = new FolderBackup('./example/project', './example/backups')
+let backup = new FolderBackup('./project', './backups')
 
 // There was a backup long time ago...
 backup.today = new Date("2020-06-21");
+
 await backup.daily(2)
 await backup.weekly(2)
 await backup.monthly(2)
@@ -30,6 +31,14 @@ await backup.annually(2)
 
 // Current TODAY will rewrite the old backups
 backup.today = new Date();
+
+// https://www.npmjs.com/package/maximatch
+backup.filter = [
+    '**',
+    '!**/*.jar',
+    // /(?<=\/).*(?=\.jar)/,
+]
+
 await backup.daily(2)
 await backup.weekly(2)
 await backup.monthly(2)

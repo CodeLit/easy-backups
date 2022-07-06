@@ -26,3 +26,19 @@ await backup.annually(2) // Last 2 years will be saved
 ```shell
 node script.js
 ```
+
+### Extended options:
+
+
+```js
+let backup = new FolderBackup('./example/project', './example/backups')
+backup.today = new Date("2020-06-21"); // Change backup date
+backup.filter = [
+    '**', // Add all files to filter
+    '!**/*.jar', // Exclude .jar files from filter
+    '!**/*.bin', // Exclude .bin files from filter
+    // It also supports patterns etc.
+    /^(?!.*\.log)/, // Exclude .log files from filter
+]
+await backup.daily(2) // Last 2 days will be saved
+```

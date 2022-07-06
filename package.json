@@ -18,6 +18,9 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "current-week-number": "^1.0.7",
+    "randomstring": "^1.2.2",
+    "recursive-copy": "^2.0.14",
+    "temp-dir": "^2.0.0",
     "zip-a-folder": "^1.1.5"
   }
 }
