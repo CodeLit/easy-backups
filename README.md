@@ -32,13 +32,17 @@ node script.js
 
 ```js
 let backup = new FolderBackup('./example/project', './example/backups')
+
 backup.today = new Date("2020-06-21"); // Change backup date
+
 backup.filter = [
     '**', // Add all files to filter
     '!**/*.jar', // Exclude .jar files from filter
     '!**/*.bin', // Exclude .bin files from filter
     // It also supports patterns etc.
     /^(?!.*\.log)/, // Exclude .log files from filter
+    // For more info - https://www.npmjs.com/package/maximatch
 ]
+
 await backup.daily(2) // Last 2 days will be saved
 ```
