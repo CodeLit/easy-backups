@@ -1,6 +1,6 @@
 import {FolderBackup} from "../index.js";
 
-let backup = new FolderBackup('./project', './backups')
+let backup = new FolderBackup('./example/project', './example/backups')
 
 // There was a backup long time ago...
 backup.today = new Date("2020-06-21");
