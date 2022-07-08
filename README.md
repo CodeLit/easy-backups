@@ -1,4 +1,4 @@
-# Super Easy backuper
+# Super Easy backups
 
 
 ## Usage:
