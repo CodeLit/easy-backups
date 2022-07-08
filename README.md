@@ -3,13 +3,13 @@
 
 ## Usage:
 ```shell
-npm i easy-backuper
+npm i easy-backups
 ```
 
 ```js
 // script.js
 
-import {FolderBackup} from "easy-backuper";
+import {FolderBackup} from "easy-backups";
 
 // Specify project folder you want to backup, and path to backup storage
 let backup = new FolderBackup('./example/project', './example/backups') // IN, OUT
